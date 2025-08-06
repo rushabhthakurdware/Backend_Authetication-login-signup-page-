@@ -1,6 +1,5 @@
 const express=require("express");
-// const app=quire("express");
-// app.use(express.json());
+
 const Router=express.Router();
 
 const users=require("../users");
@@ -14,16 +13,16 @@ Router.post("/signup",async(req,res)=>{
     const email=req.body.email;
 
     users.map((elem)=>{
-        if(username===elem.username){
+        if(username===elem.username ){
             return res.status(400).json( "User already exists please login in");
         }
            
 
     });
     const hashcode= await bcrypt.hash(password,10)
-    console.log(hashcode)
+    console.log(hashcode);
     users.push({username:username, password:hashcode, email:email});
-    res.status(200).send( "User registered successfully");
+    return res.status(200).send( "User registered successfully");
 
 })
 
@@ -55,13 +54,13 @@ Router.post("/login",async(req,res)=>{
 
     const user=users.filter((elem)=>{
         return elem.username===username;
-    })
+    });
     console.log(user);
     if(user.length!==0){
         const validated=await bcrypt.compare(password , user[0].password);
         
         if(validated){
-             res.status(200).send({msg:"Login successful" ,email:user[0].email, username:user[0].username});
+             res.status(200).send({msg:"Login successful" ,email:user[0].email, }); 
         }else{
              res.status(400).send({msg:"Invalid username or password"});
         }
