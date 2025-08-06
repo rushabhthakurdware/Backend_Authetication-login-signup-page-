@@ -6,7 +6,7 @@ const user=[
     {
         username:"shiva",
         email:"shiva@example.com",
-        password:"$2b$10$IhmlBcEA4OBTPMNC/obeBexP1QIxoGGOmmZzClbu8.xEKIsy/fBRG"
+        password:"$2b$10$nKAgwKuNdlyZ3kY7fk.5k.LnABmgx/e0nfzPWfC.JgOwo4Ey9aPz6"
     },
     {
         username:"john",
@@ -30,7 +30,7 @@ const user=[
     },{
         username:"bob",
         email:"bob@example.com",
-        password:"$2b$10$ALRMWJ1aIxGJWxu1cQyoxOYHogXm43WUDAEuvn6dCYccNZqbUEJBK"
+        password:"$2b$10$/L1nEA02see7fkWzmRHtCOkqNv8GjyCVRV4ycP6bTKuufE7W/jbCu"
     }
 ]
 

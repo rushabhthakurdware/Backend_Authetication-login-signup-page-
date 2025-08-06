@@ -6,6 +6,8 @@ const users=require("../users");
 
 const bcrypt=require("bcrypt");
 
+const jwt=require("jsonwebtoken")
+
 // signup api
 Router.post("/signup",async(req,res)=>{
     const username=req.body.username;
@@ -60,7 +62,10 @@ Router.post("/login",async(req,res)=>{
         const validated=await bcrypt.compare(password , user[0].password);
         
         if(validated){
-             res.status(200).send({msg:"Login successful" ,email:user[0].email, }); 
+
+            const token=jwt.sign(user[0].email,"mykey")
+             res.status(200).send({msg:"Login successful" ,token:token }); 
+
         }else{
              res.status(400).send({msg:"Invalid username or password"});
         }
